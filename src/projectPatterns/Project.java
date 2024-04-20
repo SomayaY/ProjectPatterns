@@ -45,7 +45,10 @@ public class Project {
                 return;
             }
             
-            Student stu = new Student(name, nactionalid);
+//            Student stu = new Student(name, nactionalid);
+            AccountFactory studentFactory = FactoryProvider.getFactory("student");
+            
+            Student stu = (Student) studentFactory.selectAccount(name, nactionalid);
             
             dataToArray(stu);
             
@@ -136,7 +139,10 @@ public class Project {
             System.out.print("type password: ");
             String password = input.next();
             
-            Admin admin = new Admin(name, password);
+//            Admin admin = new Admin(name, password);
+            AccountFactory adminFactory = FactoryProvider.getFactory("admin");
+            
+            Admin admin = (Admin) adminFactory.selectAccount(name, password);
             
             dataToArray(admin);
             

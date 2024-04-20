@@ -65,4 +65,9 @@ public class Admin extends Account {
         return this.password.equals(pass);
     }
     
+    @Override
+    public void displayInfo() {
+        System.out.println("Admin Name: " + this.getName());
+    }
+    
 }

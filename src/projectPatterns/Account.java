@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Somaya
  */
-public class Account {
+public abstract class Account {
     
     private String name;
     ArrayList<Subject> subjects;
@@ -35,6 +35,8 @@ public class Account {
     public ArrayList<Subject> getSubjects() {
         return subjects;
     }
+    
+    public abstract void displayInfo();
 
     
 }

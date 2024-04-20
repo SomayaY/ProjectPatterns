@@ -21,7 +21,12 @@ public class Student extends Account {
         this.nationalId = nationalId;
     }
     
-    public String getNationalId(String nationalId) {
+    public String getNationalId() {
         return nationalId;
+    }
+    
+    @Override
+    public void displayInfo() {
+        System.out.println("Student Name: " + this.getName() + ", NID: " + this.getNationalId());
     }
 }
