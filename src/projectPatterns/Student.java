@@ -9,7 +9,7 @@ package projectPatterns;
  *
  * @author Somaya
  */
-public class Student extends Account {
+public class Student extends Account implements StudentFeature {
     
     private String nationalId;
     
@@ -28,5 +28,10 @@ public class Student extends Account {
     @Override
     public void displayInfo() {
         System.out.println("Student Name: " + this.getName() + ", NID: " + this.getNationalId());
+    }
+    
+    @Override
+    public String getDetails() {
+        return "Standard Student: " + this.getName();
     }
 }

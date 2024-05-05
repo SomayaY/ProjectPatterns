@@ -55,6 +55,14 @@ public class Project {
             
             System.out.println("Welcome, " + stu.getName());
             
+            StudentFeature honorsStudent = new HonorsStudentDecorator(stu);
+
+            // Add scholarship feature
+            StudentFeature scholarshipHonorsStudent = new ScholarshipStudentDecorator(honorsStudent);
+
+            // Output
+            System.out.println(scholarshipHonorsStudent.getDetails());
+            
             
             boolean running = true;
             
