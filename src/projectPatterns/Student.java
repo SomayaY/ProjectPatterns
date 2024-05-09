@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**/
 package projectPatterns;
 
 /**
  *
  * @author Somaya
  */
-public class Student extends Account implements StudentFeature {
+public class Student extends Account implements StudentFeature,Observer {
     
     private String nationalId;
     
@@ -29,9 +25,13 @@ public class Student extends Account implements StudentFeature {
     public void displayInfo() {
         System.out.println("Student Name: " + this.getName() + ", NID: " + this.getNationalId());
     }
-    
+    //adapter حيستنى لين تجيه المعلومة من ستيودينت ديكوريتور
     @Override
     public String getDetails() {
         return "Standard Student: " + this.getName();
     }
+    public void update() {
+        System.out.println("Notification: Your subjects or exams have been updated.");
+    }
+    
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Somaya
  */
-public class Admin extends Account {
+public abstract class Admin extends Account implements Observer{
     
     private final String pass = "123123";
     private String password;
@@ -24,6 +24,7 @@ public class Admin extends Account {
     public void addSubject(Subject subject) {
         subjects = getSubjects();
         subjects.add(subject);
+        notifyObservers();
     }
     
     public void removeSubject(int subjectId) {
@@ -70,4 +71,14 @@ public class Admin extends Account {
         System.out.println("Admin Name: " + this.getName());
     }
     
+    public void executeCommand(Command command) {
+        command.execute();
+    }  
+    private ArrayList<Observer> observers = new ArrayList<>();
+    
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
 }

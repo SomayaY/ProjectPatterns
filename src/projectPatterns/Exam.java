@@ -1,15 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**/
 package projectPatterns;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author Somaya
  */
-public class Exam {
+public class Exam implements Observable{
     
     private int subjectId;
     private int id;
@@ -68,6 +66,25 @@ public class Exam {
     
     public String printDetails() {
         return "Exam ID: " + this.getId() + "\nDate: " + this.getDate() + "\nExam class: " + this.getExamClass() + "\nCoordinates: " + this.getCoordinates();
+    }
+    
+    private ArrayList<Observer> observers = new ArrayList<>();
+
+//    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+//    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+//    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
     }
     
 }
